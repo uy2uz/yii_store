@@ -92,34 +92,29 @@ LtAppAsset::register($this);
 				<div class="row">
 					<div class="col-sm-9">
 						<div class="navbar-header">
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-						</div>
+                                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                                            <span class="sr-only">Toggle navigation</span>
+                                                            <span class="icon-bar"></span>
+                                                            <span class="icon-bar"></span>
+                                                            <span class="icon-bar"></span>
+                                                    </button>
+                                                </div>
 						<div class="mainmenu pull-left">
-							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="index.html" class="active">Home</a></li>
-								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Products</a></li>
-										<li><a href="product-details.html">Product Details</a></li> 
-										<li><a href="checkout.html">Checkout</a></li> 
-										<li><a href="cart.html">Cart</a></li> 
-										<li><a href="login.html">Login</a></li> 
-                                    </ul>
-                                </li> 
-								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.html">Blog List</a></li>
-										<li><a href="blog-single.html">Blog Single</a></li>
-                                    </ul>
-                                </li> 
-								<li><a href="404.html">404</a></li>
-								<li><a href="contact-us.html">Contact</a></li>
-							</ul>
+                                                    <ul class="nav navbar-nav collapse navbar-collapse">
+                                                        <li><a href="<?php echo \yii\helpers\Url::to(['/admin'])?>" class="active">Home</a></li>
+                                                        <li class="dropdown"><a href="#">Категории<i class="fa fa-angle-down"></i></a>
+                                                            <ul role="menu" class="sub-menu">
+                                                                <li><a href="<?php echo \yii\helpers\Url::to(['category/index'])?>">Список категорий</a></li> 
+                                                                <li><a href="<?php echo \yii\helpers\Url::to(['category/create'])?>">Добавить категорию</a></li> 
+                                                            </ul>
+                                                        </li> 
+                                                        <li class="dropdown"><a href="#">Товары<i class="fa fa-angle-down"></i></a>
+                                                            <ul role="menu" class="sub-menu">
+                                                                <li><a href="<?php echo \yii\helpers\Url::to(['product/index'])?>">Список товаров</a></li>
+                                                                <li><a href="<?php echo \yii\helpers\Url::to(['product/create'])?>">Добавить товар</a></li>
+                                                            </ul>
+                                                        </li> 
+                                                    </ul>
 						</div>
 					</div>
 					<div class="col-sm-3">
@@ -135,6 +130,12 @@ LtAppAsset::register($this);
 	</header><!--/header-->
 	
 <div class="container">
+    <?php if(Yii::$app->session->hasFlash('success')):?>
+        <div class="alert alert-success alert-dismissable" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <?php echo Yii::$app->session->getFlash('success');?>
+        </div>
+    <?php endif;?>
     <?php echo $content; ?>
 </div>	
 	<footer id="footer"><!--Footer-->

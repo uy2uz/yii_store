@@ -1,8 +1,21 @@
-<?php
+<option value="<?php echo $category['id']?>"
+    <?php 
+        if($category['id'] == $this->model->parent_id){
+        echo ' selected';
+        }
+    ?>
+        
+    <?php
+        if($category['id'] == $this->model->id){
+            echo 'disabled';
+        }
+    ?>
+>
+    <?php echo $tab . $category['name']?>
+</option>
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+<?php if(isset($category['childs'])) :?>
+        <ul>
+            <?= $this->getMenuHtml($category['childs'], $tab . '-') ?>
+        </ul>
+<?php endif;?>
