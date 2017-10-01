@@ -3,11 +3,7 @@
 use yii\helpers\Html;
 
 ?>
-<section id="advertisement">
-		<div class="container">
-			<img src="/images/shop/advertisement.jpg" alt="" />
-		</div>
-	</section>
+
 	
 	<section>
 		<div class="container">
@@ -18,35 +14,7 @@ use yii\helpers\Html;
 						
                                                 <ul class="catalog category-products">
                                                     <?= \app\components\MenuWidget::widget(['tpl' => 'menu'])?>
-                                                </ul>
-					
-						<div class="brands_products"><!--brands_products-->
-							<h2>Brands</h2>
-							<div class="brands-name">
-								<ul class="nav nav-pills nav-stacked">
-									<li><a href=""> <span class="pull-right">(50)</span>Acne</a></li>
-									<li><a href=""> <span class="pull-right">(56)</span>Grüne Erde</a></li>
-									<li><a href=""> <span class="pull-right">(27)</span>Albiro</a></li>
-									<li><a href=""> <span class="pull-right">(32)</span>Ronhill</a></li>
-									<li><a href=""> <span class="pull-right">(5)</span>Oddmolly</a></li>
-									<li><a href=""> <span class="pull-right">(9)</span>Boudestijn</a></li>
-									<li><a href=""> <span class="pull-right">(4)</span>Rösch creative culture</a></li>
-								</ul>
-							</div>
-						</div><!--/brands_products-->
-						
-						<div class="price-range"><!--price-range-->
-							<h2>Price Range</h2>
-							<div class="well">
-								 <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
-								 <b>$ 0</b> <b class="pull-right">$ 600</b>
-							</div>
-						</div><!--/price-range-->
-						
-						<div class="shipping text-center"><!--shipping-->
-							<img src="/images/home/shipping.jpg" alt="" />
-						</div><!--/shipping-->
-						
+                                                </ul>						
 					</div>
 				</div>
 				
@@ -85,7 +53,7 @@ use yii\helpers\Html;
                                                     <?php if ($i % 3 == 0): ?>
                                                         <div class="clearfix"></div>
                                                     <?php endif;?>
-                                                    <?php endforeach; ?>
+                                                <?php endforeach; ?>
                                                     <div class="clearfix"></div>    
                                                     <?php 
                                                         echo yii\widgets\LinkPager::widget([

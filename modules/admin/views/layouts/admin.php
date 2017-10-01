@@ -1,8 +1,4 @@
 <?php
-
-/* @var $this \yii\web\View */
-/* @var $content string */
-
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
@@ -10,10 +6,10 @@ use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use app\assets\LtAppAsset;
 
-
 AppAsset::register($this);
 LtAppAsset::register($this);
 ?>
+
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
@@ -21,7 +17,7 @@ LtAppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
-    <title>Админка | <?= Html::encode($this->title) ?></title>
+    <title>Функции администратора | <?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 
        
@@ -41,8 +37,8 @@ LtAppAsset::register($this);
 					<div class="col-sm-6">
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
-								<li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+								<li><a href="#"><i class="fa fa-phone"></i> +38(044) 444 44 44</a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i> info@e-store.com</a></li>
 							</ul>
 						</div>
 					</div>
@@ -51,8 +47,6 @@ LtAppAsset::register($this);
 							<ul class="nav navbar-nav">
 								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
 								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
 							</ul>
 						</div>
@@ -75,11 +69,9 @@ LtAppAsset::register($this);
 							<ul class="nav navbar-nav">
 								<?php if(!Yii::$app->user->isGuest): ?>
                                                                 <li><a href="<?php echo \yii\helpers\Url::to(['/site/logout'])?>"><i class="fa fa-user"></i><?php echo Yii::$app->user->identity['username']?> (Выход)</a></li>
-                                                                <?php endif;?> 
-								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="#" onclick="return getCart();"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                                                <?php else:?> 
 								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+                                                                <?php endif;?>
 							</ul>
 						</div>
 					</div>
@@ -91,32 +83,25 @@ LtAppAsset::register($this);
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-9">
-						<div class="navbar-header">
-                                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                                            <span class="sr-only">Toggle navigation</span>
-                                                            <span class="icon-bar"></span>
-                                                            <span class="icon-bar"></span>
-                                                            <span class="icon-bar"></span>
-                                                    </button>
-                                                </div>
-						<div class="mainmenu pull-left">
-                                                    <ul class="nav navbar-nav collapse navbar-collapse">
-                                                        <li><a href="<?php echo \yii\helpers\Url::to(['/admin'])?>" class="active">Home</a></li>
-                                                        <li class="dropdown"><a href="#">Категории<i class="fa fa-angle-down"></i></a>
-                                                            <ul role="menu" class="sub-menu">
-                                                                <li><a href="<?php echo \yii\helpers\Url::to(['category/index'])?>">Список категорий</a></li> 
-                                                                <li><a href="<?php echo \yii\helpers\Url::to(['category/create'])?>">Добавить категорию</a></li> 
-                                                            </ul>
-                                                        </li> 
-                                                        <li class="dropdown"><a href="#">Товары<i class="fa fa-angle-down"></i></a>
-                                                            <ul role="menu" class="sub-menu">
-                                                                <li><a href="<?php echo \yii\helpers\Url::to(['product/index'])?>">Список товаров</a></li>
-                                                                <li><a href="<?php echo \yii\helpers\Url::to(['product/create'])?>">Добавить товар</a></li>
-                                                            </ul>
-                                                        </li> 
-                                                    </ul>
-						</div>
-					</div>
+						
+                                            <div class="mainmenu pull-left">
+                                                <ul class="nav navbar-nav collapse navbar-collapse">
+                                                    <li><a href="<?php echo \yii\helpers\Url::to(['/admin'])?>" class="active">Заказы</a></li>
+                                                    <li class="dropdown"><a href="#">Категории<i class="fa fa-angle-down"></i></a>
+                                                        <ul role="menu" class="sub-menu">
+                                                            <li><a href="<?php echo \yii\helpers\Url::to(['category/index'])?>">Список категорий</a></li> 
+                                                            <li><a href="<?php echo \yii\helpers\Url::to(['category/create'])?>">Добавить категорию</a></li> 
+                                                        </ul>
+                                                    </li> 
+                                                    <li class="dropdown"><a href="#">Товары<i class="fa fa-angle-down"></i></a>
+                                                        <ul role="menu" class="sub-menu">
+                                                            <li><a href="<?php echo \yii\helpers\Url::to(['product/index'])?>">Список товаров</a></li>
+                                                            <li><a href="<?php echo \yii\helpers\Url::to(['product/create'])?>">Добавить товар</a></li>
+                                                        </ul>
+                                                    </li> 
+                                                </ul>
+                                            </div>
+                                        </div>
 					<div class="col-sm-3">
 						<div class="search_box pull-right">
                                                     <form method="get" action="<?php echo \yii\helpers\Url::to(['category/search']) ?>">
@@ -147,8 +132,8 @@ LtAppAsset::register($this);
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-					<p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
-					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
+					<p class="pull-left">Copyright © 2017 E-Store.</p>
+					<p class="pull-right">Designed in Ukraine</p>
 				</div>
 			</div>
 		</div>

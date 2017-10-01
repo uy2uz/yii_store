@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use mihaildev\elfinder\ElFinder;
+mihaildev\elfinder\Assets::noConflict($this);
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Category */
@@ -26,8 +28,7 @@ use yii\widgets\ActiveForm;
         <?php echo app\components\MenuWidget::widget(['tpl' => 'select', 'model' => $model])?>
 
         </select>
-
-</div>
+    </div>
     
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
